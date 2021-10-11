@@ -20,11 +20,17 @@ const AddUser = () => {
 
   const addUser = () => {
     axios
-      .post("https://arcane-depths-62061.herokuapp.com/users/addUser", {
-        name: name,
-        email: email,
-        amount: amount,
-      })
+      .post(
+        "https://arcane-depths-62061.herokuapp.com/users/addUser",
+        {
+          name: name,
+          email: email,
+          amount: amount,
+        },
+        {
+          withCredentials: true,
+        }
+      )
       .then((res) => history.go(0))
       .catch((err) => console.log(err));
   };
