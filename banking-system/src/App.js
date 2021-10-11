@@ -6,6 +6,7 @@ import { BrowserRouter, Route, Switch } from 'react-router-dom'
 import Transfer from './components/Transfer';
 import axios from 'axios'
 import { useState, useEffect } from 'react'
+import AddUser from './components/AddUser';
 
 
 function App() {
@@ -14,7 +15,7 @@ function App() {
   const [users, setUsers] = useState([])
 
   const fetchUsers = () => {
-    axios.get('http://localhost:5000/users')
+    axios.get('https://arcane-depths-62061.herokuapp.com/users')
       .then(res => setUsers(res.data))
   }
   useEffect(() => {
@@ -26,6 +27,7 @@ function App() {
       <Switch>
         <Route exact path="/users" component={() => <DataTable fetchUsers={fetchUsers} users={users} />} />
         <Route exact path="/transfer" component={() => <Transfer users={users} />} />
+        <Route exact path="/addUser" component={() => <AddUser />} />
         <Route exact path="*" component={() => "Not Found"} />
       </Switch>
     </BrowserRouter>

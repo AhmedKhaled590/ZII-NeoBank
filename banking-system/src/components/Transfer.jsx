@@ -11,7 +11,7 @@ const Transfer = ({ users }) => {
     const history = useHistory()
 
     const handleTransfer = () => {
-        axios.post('http://localhost:5000/users/transfer', {
+        axios.post('https://arcane-depths-62061.herokuapp.com/users/transfer', {
             from: from,
             to: to,
             amount: amount
