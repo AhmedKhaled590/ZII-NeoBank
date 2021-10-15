@@ -7,6 +7,7 @@ import Transfer from './components/Transfer';
 import axios from 'axios'
 import { useState, useEffect } from 'react'
 import AddUser from './components/AddUser';
+import HomePage from './components/Home';
 
 
 function App() {
@@ -25,6 +26,7 @@ function App() {
     <BrowserRouter>
       <NavBar />
       <Switch>
+        <Route exact path="/" component={() => <HomePage />} />
         <Route exact path="/users" component={() => <DataTable fetchUsers={fetchUsers} users={users} />} />
         <Route exact path="/transfer" component={() => <Transfer users={users} />} />
         <Route exact path="/addUser" component={() => <AddUser />} />

@@ -20,17 +20,11 @@ const Transfer = ({ users }) => {
 
   const handleTransfer = () => {
     axios
-      .post(
-        "https://arcane-depths-62061.herokuapp.com/users/transfer",
-        {
-          from: from,
-          to: to,
-          amount: amount,
-        },
-        {
-          withCredentials: true,
-        }
-      )
+      .post("https://arcane-depths-62061.herokuapp.com/users/transfer", {
+        from: from,
+        to: to,
+        amount: amount,
+      })
       .then((res) => history.go(0))
       .catch((err) => console.log(err));
   };
